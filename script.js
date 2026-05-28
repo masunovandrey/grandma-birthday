@@ -2,6 +2,13 @@ const owner = "masunovandrey";
 const repo = "grandma-birthday";
 const branch = "main";
 
+const videos = [
+  {
+    title: "Main Celebration Video",
+    url: "https://www.youtube.com/watch?v=CK8mF1otExU"
+  }
+];
+
 async function getFolders() {
   const res = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/contents`
@@ -59,6 +66,30 @@ async function init() {
       createGallery(folder.name, images);
     }
   }
+}
+
+function createVideo(title, url) {
+
+  const section = document.createElement("section");
+
+  const h2 = document.createElement("h2");
+  h2.textContent = title;
+
+  const iframe = document.createElement("iframe");
+
+  const videoId = new URL(url).searchParams.get("v");
+
+  iframe.src = `https://www.youtube.com/embed/${videoId}`;
+  iframe.width = "100%";
+  iframe.height = "450";
+  iframe.style.border = "none";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  section.appendChild(h2);
+  section.appendChild(iframe);
+
+  document.getElementById("app").appendChild(section);
 }
 
 init();
