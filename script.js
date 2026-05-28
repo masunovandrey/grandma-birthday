@@ -1,5 +1,5 @@
-const owner = "YOUR_USERNAME";
-const repo = "YOUR_REPO";
+const owner = "masunovandrey";
+const repo = "grandma-birthday";
 const branch = "main";
 
 async function getFolders() {
