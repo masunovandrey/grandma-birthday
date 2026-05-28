@@ -4,14 +4,14 @@ const branch = "main";
 
 async function getFolders() {
   const res = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/contents/photos`
+    `https://api.github.com/repos/${owner}/${repo}/contents`
   );
   return await res.json();
 }
 
 async function getImages(folder) {
   const res = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/contents/photos/${folder}`
+    `https://api.github.com/repos/${owner}/${repo}/contents/${folder}`
   );
   const files = await res.json();
 
