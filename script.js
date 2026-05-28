@@ -66,6 +66,11 @@ async function init() {
       createGallery(folder.name, images);
     }
   }
+
+  // render videos AFTER photos
+  for (const video of videos) {
+    createVideo(video.title, video.url);
+  }
 }
 
 function createVideo(title, url) {
