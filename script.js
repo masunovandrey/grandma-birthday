@@ -93,8 +93,7 @@ function createVideo(title, url) {
   const videoId = new URL(url).searchParams.get("v");
 
   iframe.src = `https://www.youtube.com/embed/${videoId}`;
-  iframe.width = "100%";
-  iframe.height = "450";
+  iframe.style.width = "100%";
   iframe.style.border = "none";
   iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   iframe.allowFullscreen = true;
