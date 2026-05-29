@@ -27,18 +27,51 @@ section h2 {
 
 /* ===== CAROUSEL ===== */
 
-.carousel {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
+@media (max-width: 480px) {
 
-.carousel img {
-  height: 160px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  #app {
+    padding: 12px;
+    gap: 30px;
+  }
+
+  /* BIGGER TAP AREAS */
+  .nav-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .close-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
+  }
+
+  /* VERY LARGE IMAGES */
+  .carousel {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* BIGGER VIDEO */
+  iframe {
+    height: 260px !important;
+    border-radius: 12px;
+  }
+
+  /* HEADINGS MORE READABLE */
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }
 
 .carousel img:hover {
