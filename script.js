@@ -2,6 +2,9 @@ const owner = "masunovandrey";
 const repo = "grandma-birthday";
 const branch = "main";
 
+let currentGallery = [];
+let currentIndex = 0;
+
 const videos = [
   {
     title: "Main Celebration Video",
@@ -41,7 +44,12 @@ function createGallery(title, images) {
     img.src = src;
 
     img.onclick = () => {
-      document.getElementById("modalImg").src = src;
+
+      currentGallery = images;
+      currentIndex = images.indexOf(src);
+    
+      showImage();
+    
       document.getElementById("modal").classList.add("active");
     };
 
@@ -96,5 +104,86 @@ function createVideo(title, url) {
 
   document.getElementById("app").appendChild(section);
 }
+
+function showImage() {
+  document.getElementById("modalImg").src =
+    currentGallery[currentIndex];
+}
+
+function nextImage() {
+
+  currentIndex++;
+
+  if (currentIndex >= currentGallery.length) {
+    currentIndex = 0;
+  }
+
+  showImage();
+}
+
+function prevImage() {
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = currentGallery.length - 1;
+  }
+
+  showImage();
+}
+
+function closeModal() {
+  document.getElementById("modal")
+    .classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document
+    .getElementById("closeBtn")
+    .addEventListener("click", closeModal);
+
+  document
+    .getElementById("nextBtn")
+    .addEventListener("click", nextImage);
+
+  document
+    .getElementById("prevBtn")
+    .addEventListener("click", prevImage);
+
+  document
+    .getElementById("modal")
+    .addEventListener("click", e => {
+
+      if (e.target.id === "modal") {
+        closeModal();
+      }
+
+    });
+
+});
+
+document.addEventListener("keydown", e => {
+
+  const modal =
+    document.getElementById("modal");
+
+  if (!modal.classList.contains("active")) {
+    return;
+  }
+
+  if (e.key === "ArrowRight") {
+    nextImage();
+  }
+
+  if (e.key === "ArrowLeft") {
+    prevImage();
+  }
+
+  if (e.key === "Escape") {
+    closeModal();
+  }
+
+});
 
 init();
