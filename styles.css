@@ -27,6 +27,34 @@ section h2 {
 
 /* ===== CAROUSEL ===== */
 
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel img {
+  flex: 0 0 auto;
+
+  height: 220px;
+  max-height: 45vh;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  scroll-snap-align: center;
+
+  transition: transform 0.2s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.03);
+}
+
 @media (max-width: 480px) {
 
   #app {
@@ -34,47 +62,32 @@ section h2 {
     gap: 30px;
   }
 
-  /* BIGGER TAP AREAS */
-  .nav-btn {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
-  }
-
-  .close-btn {
-    width: 56px;
-    height: 56px;
-    font-size: 26px;
-  }
-
-  /* VERY LARGE IMAGES */
   .carousel {
-    gap: 16px;
+    gap: 10px;
   }
 
   .carousel img {
-    height: 240px;
+    height: 45vh;
+    max-height: 320px;
     border-radius: 14px;
   }
 
-  /* BIGGER VIDEO */
   iframe {
-    height: 260px !important;
+    height: 240px !important;
     border-radius: 12px;
   }
 
-  /* HEADINGS MORE READABLE */
-  h1 {
+  .nav-btn {
+    width: 60px;
+    height: 60px;
     font-size: 26px;
   }
 
-  h2 {
-    font-size: 22px;
+  .close-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
   }
-}
-
-.carousel img:hover {
-  transform: scale(1.05);
 }
 
 /* ===== MODAL ===== */
