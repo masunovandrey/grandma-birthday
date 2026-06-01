@@ -7,7 +7,7 @@ let currentIndex = 0;
 
 const videos = [
   {
-    title: "Main Celebration Video",
+    title: "Песня от внуков",
     url: "https://www.youtube.com/watch?v=CK8mF1otExU"
   }
 ];
