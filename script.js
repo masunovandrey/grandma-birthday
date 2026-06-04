@@ -7,6 +7,10 @@ let currentIndex = 0;
 
 const videos = [
   {
+    title: "Видео с юбилея",
+    url: "https://www.youtube.com/watch?v=HEYv9sLFLzk"
+  },
+  {
     title: "Песня от внуков",
     url: "https://www.youtube.com/watch?v=CK8mF1otExU"
   }
